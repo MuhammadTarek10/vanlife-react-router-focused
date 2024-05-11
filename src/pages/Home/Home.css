@@ -1,0 +1,26 @@
+/* .home-container {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("../../assets/images/home-hero.png") no-repeat center center;
+  padding: 40px 20px;
+}
+
+.find-button-container {
+  width: 70%;
+  margin: 48px auto;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: orange;
+}
+
+.home-container > h1,
+p {
+  color: white;
+}
+
+.find-button {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+} */
