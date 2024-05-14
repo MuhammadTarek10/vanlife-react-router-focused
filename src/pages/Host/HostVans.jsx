@@ -1,25 +1,25 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-export const Vans = () => {
+const HostVans = () => {
   const [vans, setVans] = useState([]);
   useEffect(() => {
-    fetch("/api/vans")
+    fetch("/api/host/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
 
   const vanElements = vans.map((van) => (
-    <div key={van.id} className="van-title">
-      <Link to={`/vans/${van.id}`}>
-        <img src={van.imageUrl} alt={van.name} />
-        <div className="van-info">
-          <h3>{van.name}</h3>
-          <p>
-            ${van.price}
-            <span>/day</span>
-          </p>
+    <div key={van.id} className="host-van-link-wrapper">
+      <Link to={`/host/vans/${van.id}`}>
+        <div className="host-van-single">
+          <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
+          <div className="host-van-info">
+            <h3>{van.name}</h3>
+            <p>
+              ${van.price}
+              <span>/day</span>
+            </p>
+          </div>
           <i className={`van-type ${van.type} selected`}>{van.type}</i>
         </div>
       </Link>
@@ -33,3 +33,4 @@ export const Vans = () => {
     </div>
   );
 };
+export default HostVans;

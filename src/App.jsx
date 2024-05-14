@@ -1,10 +1,20 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Outlet,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
 import { Layout } from "./components/Layout";
 import { About } from "./pages/About/About";
 import { Home } from "./pages/Home/Home";
 import { Dashboard } from "./pages/Host/Dashboard";
 import { Host } from "./pages/Host/Host";
+import HostVanDetailsLayout from "./pages/Host/HostVanDetailsLayout";
+import HostVans from "./pages/Host/HostVans";
+import HostVansDetails from "./pages/Host/HostVansDetails";
+import HostVansPhotos from "./pages/Host/HostVansPhotos";
+import HostVansPricing from "./pages/Host/HostVansPricing";
 import { Income } from "./pages/Host/Income";
 import { Reviews } from "./pages/Host/Reviews";
 import { VanDetails } from "./pages/Vans/VanDetails";
@@ -24,6 +34,14 @@ const App = () => {
             <Route index element={<Dashboard />} />
             <Route path="reviews" element={<Reviews />} />
             <Route path="income" element={<Income />} />
+            <Route path="vans" element={<Outlet />}>
+              <Route index element={<HostVans />} />
+              <Route path=":id" element={<HostVanDetailsLayout />}>
+                <Route index element={<HostVansDetails />} />
+                <Route path="photos" element={<HostVansPhotos />} />
+                <Route path="pricing" element={<HostVansPricing />} />
+              </Route>
+            </Route>
           </Route>
         </Route>
       </Routes>
