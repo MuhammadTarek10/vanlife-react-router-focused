@@ -1,41 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getVans } from "../../data/api";
 
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+  return getVans();
+}
+
 export const Vans = () => {
-  const [vans, setVans] = useState([]);
+  const vans = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-      try {
-        const vans = await getVans();
-        setVans(vans);
-      } catch (e) {
-        setError(e);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadVans();
-  }, []);
-
-  if (loading) return <h1>Loading...</h1>;
-
-  if (error)
-    return (
-      <div>
-        <h1>
-          Error: <span>{error.message}</span>
-        </h1>
-      </div>
-    );
-
   const typeFilter = searchParams.get("type");
   const searchedVans = typeFilter
     ? vans.filter((van) => van.type == typeFilter)
