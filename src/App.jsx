@@ -22,7 +22,7 @@ import { HostVansPhotos } from "./pages/Host/HostVansPhotos";
 import { HostVansPricing } from "./pages/Host/HostVansPricing";
 import { Income } from "./pages/Host/Income";
 import { Reviews } from "./pages/Host/Reviews";
-import { Login } from "./pages/Login";
+import { Login, loader as loginLoader } from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import {
   VanDetails,
@@ -37,7 +37,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<Login />} loader={loginLoader} />
         <Route
           path="vans"
           element={<Vans />}

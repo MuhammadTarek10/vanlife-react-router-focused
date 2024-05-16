@@ -1,6 +1,6 @@
 import { Link, useLoaderData, useLocation } from "react-router-dom";
-import { requireAuth } from "../../utils/utils";
 import { getVans } from "../../data/api";
+import { requireAuth } from "../../utils/utils";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader({ params }) {
