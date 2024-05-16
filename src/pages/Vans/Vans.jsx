@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getVans } from "../../data/api";
+import { requireAuth } from "../../utils/utils";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
+export async function loader() {
+  await requireAuth();
   return getVans();
 }
 

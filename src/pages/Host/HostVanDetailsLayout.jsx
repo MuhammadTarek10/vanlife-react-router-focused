@@ -1,19 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../data/api";
 
-const HostVanDetailsLayout = () => {
-  const { id } = useParams();
+// eslint-disable-next-line react-refresh/only-export-components
+export async function loader({ params }) {
+  return getHostVans(params.id);
+}
 
-  const [currentVan, setCurrentVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans));
-  }, [id]);
-
-  if (!currentVan) return <h1>Loading...</h1>;
+export const HostVanDetailsLayout = () => {
+  const currentVan = useLoaderData();
 
   return (
     <>
@@ -58,4 +53,3 @@ const HostVanDetailsLayout = () => {
     </>
   );
 };
-export default HostVanDetailsLayout;

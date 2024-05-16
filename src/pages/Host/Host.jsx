@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { Dashboard } from "./Dashboard";
-import HostVans from "./HostVans";
+import { HostVans } from "./HostVans";
 import { Income } from "./Income";
 import { Reviews } from "./Reviews";
 

@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 
-const HostVansPhotos = () => {
+export const HostVansPhotos = () => {
   const { currentVan } = useOutletContext();
 
   return (
@@ -13,4 +13,3 @@ const HostVansPhotos = () => {
     </div>
   );
 };
-export default HostVansPhotos;

@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-const HostVans = () => {
-  const [vans, setVans] = useState([]);
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../data/api";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export async function loader() {
+  return getHostVans();
+}
+
+export const HostVans = () => {
+  const vans = useLoaderData();
 
   const vanElements = vans.map((van) => (
     <div key={van.id} className="host-van-link-wrapper">
@@ -33,4 +34,3 @@ const HostVans = () => {
     </div>
   );
 };
-export default HostVans;
