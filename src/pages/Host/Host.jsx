@@ -9,7 +9,7 @@ export const Host = () => {
     <>
       <nav className="host-nav">
         <NavLink
-          className={({ isActive }) => (isActive ? "active-link" : null)}
+          className={(isActive) => (isActive ? "active-link" : null)}
           to="."
           end
           element={<Dashboard />}>

@@ -17,6 +17,7 @@ import HostVansPhotos from "./pages/Host/HostVansPhotos";
 import HostVansPricing from "./pages/Host/HostVansPricing";
 import { Income } from "./pages/Host/Income";
 import { Reviews } from "./pages/Host/Reviews";
+import NotFound from "./pages/NotFound";
 import { VanDetails } from "./pages/Vans/VanDetails";
 import { Vans } from "./pages/Vans/Vans";
 
@@ -43,6 +44,7 @@ const App = () => {
               </Route>
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>

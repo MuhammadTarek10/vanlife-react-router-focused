@@ -38,17 +38,19 @@ const HostVanDetailsLayout = () => {
         <NavLink
           to="."
           end
-          className={(isActive) => (isActive ? "active-link" : "")}>
+          className={(isActive) => (isActive ? "active-link" : null)}>
           Details
         </NavLink>
         <NavLink
           to="photos"
-          className={(isActive) => (isActive ? "active-link" : "")}>
+          end
+          className={(isActive) => (isActive ? "active-link" : null)}>
           Photos
         </NavLink>
         <NavLink
           to="pricing"
-          className={(isActive) => (isActive ? "active-link" : "")}>
+          end
+          className={(isActive) => (isActive ? "active-link" : null)}>
           Pricing
         </NavLink>
       </div>

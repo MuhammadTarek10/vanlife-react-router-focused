@@ -10,7 +10,7 @@ const HostVans = () => {
 
   const vanElements = vans.map((van) => (
     <div key={van.id} className="host-van-link-wrapper">
-      <Link to={`/host/vans/${van.id}`}>
+      <Link to={van.id}>
         <div className="host-van-single">
           <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
           <div className="host-van-info">
