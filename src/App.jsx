@@ -10,7 +10,7 @@ import { Error } from "./components/Error";
 import { Layout } from "./components/Layout";
 import { About } from "./pages/About/About";
 import { Home } from "./pages/Home/Home";
-import { Dashboard } from "./pages/Host/Dashboard";
+import { Dashboard, loader as dashboardLoader } from "./pages/Host/Dashboard";
 import { Host } from "./pages/Host/Host";
 import {
   HostVanDetailsLayout,
@@ -64,11 +64,7 @@ const App = () => {
           element={<Host />}
           loader={async (request) => await requireAuth(request)}
           errorElement={<Error />}>
-          <Route
-            index
-            element={<Dashboard />}
-            loader={async (request) => await requireAuth(request)}
-          />
+          <Route index element={<Dashboard />} loader={dashboardLoader} />
           <Route
             path="reviews"
             element={<Reviews />}
