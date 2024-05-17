@@ -24,6 +24,10 @@ body {
   scrollbar-width: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .site-wrapper {
   min-height: 100vh;
   display: flex;
