@@ -4,8 +4,8 @@ import { getVans } from "../../data/api";
 import { requireAuth } from "../../utils/utils";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function loader() {
-  await requireAuth();
+export async function loader(request) {
+  await requireAuth(request);
   return getVans();
 }
 

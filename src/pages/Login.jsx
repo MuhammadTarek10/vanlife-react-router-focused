@@ -17,11 +17,13 @@ export async function action({ request }) {
   const email = formData.get("email");
   const password = formData.get("password");
 
+  const pathname = new URL(request.url).searchParams.get("redirectTo");
+
   try {
     await loginUser({ email, password });
     localStorage.setItem("loggedIn", true);
 
-    return redirect("/host");
+    return redirect(pathname ?? "host");
   } catch (e) {
     return e.message;
   }
