@@ -7,6 +7,12 @@ export const Header = () => {
     localStorage.removeItem("loggedIn");
   }
 
+  function isLogged() {
+    return localStorage.getItem("loggedIn");
+  }
+
+  const loggedIn = isLogged();
+
   return (
     <header>
       <nav>
@@ -28,12 +34,15 @@ export const Header = () => {
           to="/vans">
           Vans
         </NavLink>
-        <Link to="/login">
-          <img src={avatarImage} alt="User" className="login-icon" />
-        </Link>
-        <button className="van-type clear-filters" onClick={fakeLogout}>
-          Logout
-        </button>
+        {!loggedIn ? (
+          <Link to="/login">
+            <img src={avatarImage} alt="User" className="login-icon" />
+          </Link>
+        ) : (
+          <button className="van-type clear-filters" onClick={fakeLogout}>
+            Logout
+          </button>
+        )}
       </nav>
     </header>
   );
