@@ -45,19 +45,23 @@ export const HostVanDetailsLayout = () => {
                   <NavLink
                     to="."
                     end
-                    className={(isActive) => (isActive ? "active-link" : null)}>
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : null
+                    }>
                     Details
                   </NavLink>
                   <NavLink
                     to="photos"
-                    end
-                    className={(isActive) => (isActive ? "active-link" : null)}>
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : null
+                    }>
                     Photos
                   </NavLink>
                   <NavLink
                     to="pricing"
-                    end
-                    className={(isActive) => (isActive ? "active-link" : null)}>
+                    className={({ isActive }) =>
+                      isActive ? "active-link" : null
+                    }>
                     Pricing
                   </NavLink>
                 </div>

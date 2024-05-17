@@ -21,4 +21,5 @@ img {
 a.active-link {
   text-decoration: underline;
   font-weight: bold;
+  color: black;
 }

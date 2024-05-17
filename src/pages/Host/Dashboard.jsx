@@ -1,17 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Suspense } from "react";
+import React from "react";
 import { Await, Link, defer, useLoaderData } from "react-router-dom";
-import { Loading } from "../../components/Loading";
+// import { BsStarFill } from "react-icons/bs"
 import { getHostVans } from "../../data/api";
 import { requireAuth } from "../../utils/utils";
 
-export async function loader(request) {
-  await requireAuth(request);
+export async function loader({ request }) {
+  await requireAuth({ request });
   return defer({ vans: getHostVans() });
 }
 
 export const Dashboard = () => {
-  const data = useLoaderData();
+  const loaderData = useLoaderData();
 
   function renderVanElements(vans) {
     const hostVansEls = vans.map((van) => (
@@ -47,6 +47,8 @@ export const Dashboard = () => {
       <section className="host-dashboard-reviews">
         <h2>Review score</h2>
 
+        {/* <BsStarFill className="star" /> */}
+
         <p>
           <span>5.0</span>/5
         </p>
@@ -57,9 +59,9 @@ export const Dashboard = () => {
           <h2>Your listed vans</h2>
           <Link to="vans">View all</Link>
         </div>
-        <Suspense fallback={<Loading />}>
-          <Await resolve={data.vans}>{renderVanElements}</Await>
-        </Suspense>
+        <React.Suspense fallback={<h3>Loading...</h3>}>
+          <Await resolve={loaderData.vans}>{renderVanElements}</Await>
+        </React.Suspense>
       </section>
     </>
   );
