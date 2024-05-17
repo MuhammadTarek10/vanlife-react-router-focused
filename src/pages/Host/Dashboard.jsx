@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React from "react";
 import { Await, Link, defer, useLoaderData } from "react-router-dom";
-// import { BsStarFill } from "react-icons/bs"
+import { BsStarFill } from "react-icons/bs"
 import { getHostVans } from "../../data/api";
 import { requireAuth } from "../../utils/utils";
 
@@ -47,7 +47,7 @@ export const Dashboard = () => {
       <section className="host-dashboard-reviews">
         <h2>Review score</h2>
 
-        {/* <BsStarFill className="star" /> */}
+        <BsStarFill className="star" />
 
         <p>
           <span>5.0</span>/5

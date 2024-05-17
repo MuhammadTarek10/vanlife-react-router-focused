@@ -1,3 +1,5 @@
+import image from "../../assets/images/income-graph.png";
+
 export const Income = () => {
   const transactionsData = [
     { amount: 720, date: "Jan 3, '23", id: "1" },
@@ -11,11 +13,7 @@ export const Income = () => {
         Last <span>30 days</span>
       </p>
       <h2>$2,260</h2>
-      <img
-        className="graph"
-        src="/assets/images/income-graph.png"
-        alt="Income graph"
-      />
+      <img className="graph" src={image} alt="Income graph" />
       <div className="info-header">
         <h3>Your transactions (3)</h3>
         <p>
